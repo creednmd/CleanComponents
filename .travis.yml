@@ -1,10 +1,30 @@
 language: swift
-
+os: osx
 osx_image: xcode10.2
+
+cache: bundler
+
+## Create a build matrix to execute against multiple simulators/iOS versions
+## The UDID will be used below to determin the destination to test against where the script section will be run once for each definition
+## ISO_DEVICE is not used in the script but is useful to know what OS version is tested and will show up in Travis to make it easer to read
 env:
-  matrix:
-    - TEST_SDK=iphonesimulator11.4 OS=11.4 NAME='iPhone 7'
-    - TEST_SDK=iphonesimulator12.2 OS=12.2 NAME='iPhone XR'
+ - UDID="D94DC60A-EF32-4CA8-81C6-0746BAA0345F", IOS_DEVICE="iPhone 5s (11.4)"
+ - UDID="A80EBAAF-A957-48F7-B486-4119DB167A2E", IOS_DEVICE="iPhone Xs (12.2)"
+
+before_install:
+  - rvm install default
+  - gem install bundler
+  - gem install slather
+  - gem install cocoapods
 
 script:
-  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project CleanComponents.xcodeproj -scheme CleanComponents -sdk $TEST_SDK -destination "platform=iOS Simulator,OS=$OS,name=$NAME" ONLY_ACTIVE_ARCH=YES
+  - xcrun instruments -s devices
+  - echo Starting build and test...
+#  - open -a Simulator --args -CurrentDeviceUDID $UDID
+  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project CleanComponents.xcodeproj -scheme CleanComponents -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,id=$UDID" ONLY_ACTIVE_ARCH=NO
+  - osascript -e 'tell app "Simulator" to quit'
+
+after_success:
+  - slather
+  - bash <(curl -s https://codecov.io/bash) -f ./test-reports/cobertura.xml -X coveragepy -X gcov -X xcode || echo "Codecov did not collect coverage reports"
+  - pod lib lint

@@ -9,13 +9,13 @@
 import XCTest
 @testable import CleanComponents
 
-class CleanComponentsTests: XCTestCase {
+class CleanComponentsTests2: XCTestCase {
 
-  var cleanComponents: CleanComponents!
+  var cleanComponents: CleanComponents2!
 
 
   override func setUp() {
-      cleanComponents = CleanComponents()
+      cleanComponents = CleanComponents2()
   }
 
 

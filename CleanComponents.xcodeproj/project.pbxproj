@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C03F48A02254B02800F0E9AD /* CleanComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F489F2254B02800F0E9AD /* CleanComponents.swift */; };
+		C03F48A82254CF1800F0E9AD /* CleanComponents2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F48A72254CF1800F0E9AD /* CleanComponents2.swift */; };
+		C03F48AA2254CF2900F0E9AD /* CleanComponentsTests2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F48A92254CF2900F0E9AD /* CleanComponentsTests2.swift */; };
 		C06006952254965B00B79CF7 /* CleanComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C060068B2254965B00B79CF7 /* CleanComponents.framework */; };
 		C060069A2254965B00B79CF7 /* CleanComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06006992254965B00B79CF7 /* CleanComponentsTests.swift */; };
 		C060069C2254965B00B79CF7 /* CleanComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = C060068E2254965B00B79CF7 /* CleanComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +31,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C03F489F2254B02800F0E9AD /* CleanComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanComponents.swift; sourceTree = "<group>"; };
+		C03F48A22254C49C00F0E9AD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C03F48A32254C49C00F0E9AD /* .slather.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .slather.yml; sourceTree = "<group>"; };
+		C03F48A42254C49C00F0E9AD /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		C03F48A52254CA4900F0E9AD /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		C03F48A62254CABC00F0E9AD /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
+		C03F48A72254CF1800F0E9AD /* CleanComponents2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanComponents2.swift; sourceTree = "<group>"; };
+		C03F48A92254CF2900F0E9AD /* CleanComponentsTests2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanComponentsTests2.swift; sourceTree = "<group>"; };
+		C03F48AB2254E9A100F0E9AD /* CleanComponents.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CleanComponents.podspec; sourceTree = "<group>"; };
+		C03F48AC2254E9B900F0E9AD /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C03F48AD2254E9B900F0E9AD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C060068B2254965B00B79CF7 /* CleanComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C060068E2254965B00B79CF7 /* CleanComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleanComponents.h; sourceTree = "<group>"; };
 		C060068F2254965B00B79CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,12 +83,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C03F48A12254C47500F0E9AD /* ConfigurationFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C03F48AB2254E9A100F0E9AD /* CleanComponents.podspec */,
+				C03F48A32254C49C00F0E9AD /* .slather.yml */,
+				C03F48A42254C49C00F0E9AD /* .travis.yml */,
+				C03F48A52254CA4900F0E9AD /* Gemfile */,
+				C03F48A62254CABC00F0E9AD /* Gemfile.lock */,
+				C03F48A22254C49C00F0E9AD /* .gitignore */,
+			);
+			name = ConfigurationFiles;
+			sourceTree = "<group>";
+		};
 		C06006812254965B00B79CF7 = {
 			isa = PBXGroup;
 			children = (
+				C03F48AC2254E9B900F0E9AD /* LICENSE */,
+				C03F48AD2254E9B900F0E9AD /* README.md */,
 				C060068D2254965B00B79CF7 /* CleanComponents */,
 				C06006982254965B00B79CF7 /* CleanComponentsTests */,
 				C06006AA225496C000B79CF7 /* CleanComponentsExamples */,
+				C03F48A12254C47500F0E9AD /* ConfigurationFiles */,
 				C060068C2254965B00B79CF7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +124,8 @@
 			children = (
 				C060068E2254965B00B79CF7 /* CleanComponents.h */,
 				C060068F2254965B00B79CF7 /* Info.plist */,
+				C03F48A72254CF1800F0E9AD /* CleanComponents2.swift */,
+				C03F489F2254B02800F0E9AD /* CleanComponents.swift */,
 			);
 			path = CleanComponents;
 			sourceTree = "<group>";
@@ -102,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				C06006992254965B00B79CF7 /* CleanComponentsTests.swift */,
+				C03F48A92254CF2900F0E9AD /* CleanComponentsTests2.swift */,
 				C060069B2254965B00B79CF7 /* Info.plist */,
 			);
 			path = CleanComponentsTests;
@@ -199,6 +232,7 @@
 				TargetAttributes = {
 					C060068A2254965B00B79CF7 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 					};
 					C06006932254965B00B79CF7 = {
 						CreatedOnToolsVersion = 10.2;
@@ -260,6 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03F48A02254B02800F0E9AD /* CleanComponents.swift in Sources */,
+				C03F48A82254CF1800F0E9AD /* CleanComponents2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C060069A2254965B00B79CF7 /* CleanComponentsTests.swift in Sources */,
+				C03F48AA2254CF2900F0E9AD /* CleanComponentsTests2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -435,6 +472,7 @@
 		C06006A02254965B00B79CF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -452,6 +490,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.creed.CleanComponents;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -460,6 +499,7 @@
 		C06006A12254965B00B79CF7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -485,6 +525,7 @@
 		C06006A32254965B00B79CF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5DLG93V76;
 				INFOPLIST_FILE = CleanComponentsTests/Info.plist;
@@ -503,6 +544,7 @@
 		C06006A42254965B00B79CF7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5DLG93V76;
 				INFOPLIST_FILE = CleanComponentsTests/Info.plist;

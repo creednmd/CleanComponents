@@ -1,6 +1,7 @@
 # CleanComponents
 
 [![CI Status](https://img.shields.io/travis/creednmd/CleanComponents.svg?style=flat)](https://travis-ci.org/creednmd/CleanComponents)
+[![codecov](https://codecov.io/gh/creednmd/CleanComponents/branch/master/graph/badge.svg)](https://codecov.io/gh/creednmd/CleanComponents)
 [![Version](https://img.shields.io/cocoapods/v/CleanComponents.svg?style=flat)](https://cocoapods.org/pods/CleanComponents)
 [![License](https://img.shields.io/cocoapods/l/CleanComponents.svg?style=flat)](https://cocoapods.org/pods/CleanComponents)
 [![Platform](https://img.shields.io/cocoapods/p/CleanComponents.svg?style=flat)](https://cocoapods.org/pods/CleanComponents)
@@ -22,7 +23,7 @@ pod 'CleanComponents'
 
 ## Author
 
-creednmd, andy.w@creed.co.uk
+Andrew Warwick, andy.w@creed.co.uk
 
 ## License
 

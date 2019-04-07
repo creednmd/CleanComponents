@@ -6,6 +6,16 @@
 [![License](https://img.shields.io/cocoapods/l/CleanComponents.svg?style=flat)](https://cocoapods.org/pods/CleanComponents)
 [![Platform](https://img.shields.io/cocoapods/p/CleanComponents.svg?style=flat)](https://cocoapods.org/pods/CleanComponents)
 
+## Summary
+
+**(Note that this repo is still a huge work-in-progress, and there isn't currently a lot to see.)**
+
+Swift library to create Clean Swift Components and streamline their setup, for use with the iOS Clean Swift (VIP) Architecture, by Raymond Law.
+
+To learn more about Clean Swift and the VIP cycle, read: 
+
+[CleanSwift](http://clean-swift.com/clean-swift-ios-architecture)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

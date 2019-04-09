@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C03F48A02254B02800F0E9AD /* CleanComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F489F2254B02800F0E9AD /* CleanComponents.swift */; };
-		C03F48A82254CF1800F0E9AD /* CleanComponents2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F48A72254CF1800F0E9AD /* CleanComponents2.swift */; };
-		C03F48AA2254CF2900F0E9AD /* CleanComponentsTests2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F48A92254CF2900F0E9AD /* CleanComponentsTests2.swift */; };
 		C06006952254965B00B79CF7 /* CleanComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C060068B2254965B00B79CF7 /* CleanComponents.framework */; };
 		C060069A2254965B00B79CF7 /* CleanComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06006992254965B00B79CF7 /* CleanComponentsTests.swift */; };
 		C060069C2254965B00B79CF7 /* CleanComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = C060068E2254965B00B79CF7 /* CleanComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,8 +35,6 @@
 		C03F48A42254C49C00F0E9AD /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		C03F48A52254CA4900F0E9AD /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		C03F48A62254CABC00F0E9AD /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
-		C03F48A72254CF1800F0E9AD /* CleanComponents2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanComponents2.swift; sourceTree = "<group>"; };
-		C03F48A92254CF2900F0E9AD /* CleanComponentsTests2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanComponentsTests2.swift; sourceTree = "<group>"; };
 		C03F48AB2254E9A100F0E9AD /* CleanComponents.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CleanComponents.podspec; sourceTree = "<group>"; };
 		C03F48AC2254E9B900F0E9AD /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C03F48AD2254E9B900F0E9AD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -124,7 +120,6 @@
 			children = (
 				C060068E2254965B00B79CF7 /* CleanComponents.h */,
 				C060068F2254965B00B79CF7 /* Info.plist */,
-				C03F48A72254CF1800F0E9AD /* CleanComponents2.swift */,
 				C03F489F2254B02800F0E9AD /* CleanComponents.swift */,
 			);
 			path = CleanComponents;
@@ -134,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				C06006992254965B00B79CF7 /* CleanComponentsTests.swift */,
-				C03F48A92254CF2900F0E9AD /* CleanComponentsTests2.swift */,
 				C060069B2254965B00B79CF7 /* Info.plist */,
 			);
 			path = CleanComponentsTests;
@@ -295,7 +289,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C03F48A02254B02800F0E9AD /* CleanComponents.swift in Sources */,
-				C03F48A82254CF1800F0E9AD /* CleanComponents2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +297,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C060069A2254965B00B79CF7 /* CleanComponentsTests.swift in Sources */,
-				C03F48AA2254CF2900F0E9AD /* CleanComponentsTests2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ cache: bundler
 ## ISO_DEVICE is not used in the script but is useful to know what OS version is tested.
 env:
  - UDID="D94DC60A-EF32-4CA8-81C6-0746BAA0345F", IOS_DEVICE="iPhone 5s (11.4)"
- - UDID="A80EBAAF-A957-48F7-B486-4119DB167A2E", IOS_DEVICE="iPhone Xs (12.2)"
+ - UDID="A9F4F00A-694D-43A7-85E7-ED1B347C561E", IOS_DEVICE="iPhone Xs (12.2)"
 
 before_install:
   - rvm install default

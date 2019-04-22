@@ -5,12 +5,16 @@ osx_image: xcode10.2
 cache: bundler
 
 ## Create a build matrix to execute against multiple simulators/iOS versions.
-## UDIDs used below are from `xcrun simctl list` command in the Job log of the travis-ci.com build.
-## The UDIDs are used in the script stage to determine the destination for our tests.
-## ISO_DEVICE is not used in the script but is useful to know what OS version is tested.
+## Script stage uses `xcrun simctl list devices`, filtered by DEVICE_GREP and SYSTEM, to find device UDIDs.
+## ISO_DEVICE is human-readable summary.
 env:
- - UDID="B48EC6EA-4CB1-4018-9E63-607133D49653", IOS_DEVICE="iPhone 5s (11.4)"
- - UDID="A9F4F00A-694D-43A7-85E7-ED1B347C561E", IOS_DEVICE="iPhone Xs (12.2)"
+ - DEVICE_GREP="SE", IOS_VERSION="11-4", IOS_DEVICE="iPhone SE (11.4)"
+ - DEVICE_GREP="SE", IOS_VERSION="12-2", IOS_DEVICE="iPhone SE (12.2)"
+
+addons:
+  homebrew:
+    packages:
+    - jq
 
 before_install:
   - rvm install default
@@ -19,9 +23,9 @@ before_install:
   - gem install cocoapods
 
 script:
-  - xcrun instruments -s devices
-  - echo Starting build and test...
-  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project CleanComponents.xcodeproj -scheme CleanComponents -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,id=$UDID" ONLY_ACTIVE_ARCH=NO
+  - udid=`xcrun simctl list devices --json | jq --raw-output '.devices | to_entries | map(select(.key | contains("'$IOS_VERSION'"))) | .[].value[] | select(.name | match("'$DEVICE_GREP'"; "i")) | .udid'`
+  - echo 'Starting build and test...'
+  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project CleanComponents.xcodeproj -scheme CleanComponents -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,id=$udid" ONLY_ACTIVE_ARCH=NO
   - osascript -e 'tell app "Simulator" to quit'
 
 after_success:

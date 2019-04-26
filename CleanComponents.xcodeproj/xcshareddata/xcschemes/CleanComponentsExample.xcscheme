@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C06006A8225496C000B79CF7"
-               BuildableName = "CleanComponentsExamples.app"
-               BlueprintName = "CleanComponentsExamples"
+               BuildableName = "CleanComponentsExample.app"
+               BlueprintName = "CleanComponentsExample"
                ReferencedContainer = "container:CleanComponents.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,13 +29,12 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0E9D20B2271F0D40086B09B"
-               BuildableName = "CleanComponentTests.xctest"
-               BlueprintName = "CleanComponentTests"
+               BlueprintIdentifier = "C0E9D22622731AC90086B09B"
+               BuildableName = "CleanComponentsExampleTests.xctest"
+               BlueprintName = "CleanComponentsExampleTests"
                ReferencedContainer = "container:CleanComponents.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C06006A8225496C000B79CF7"
-            BuildableName = "CleanComponentsExamples.app"
-            BlueprintName = "CleanComponentsExamples"
+            BuildableName = "CleanComponentsExample.app"
+            BlueprintName = "CleanComponentsExample"
             ReferencedContainer = "container:CleanComponents.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C06006A8225496C000B79CF7"
-            BuildableName = "CleanComponentsExamples.app"
-            BlueprintName = "CleanComponentsExamples"
+            BuildableName = "CleanComponentsExample.app"
+            BlueprintName = "CleanComponentsExample"
             ReferencedContainer = "container:CleanComponents.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,8 +85,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C06006A8225496C000B79CF7"
-            BuildableName = "CleanComponentsExamples.app"
-            BlueprintName = "CleanComponentsExamples"
+            BuildableName = "CleanComponentsExample.app"
+            BlueprintName = "CleanComponentsExample"
             ReferencedContainer = "container:CleanComponents.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

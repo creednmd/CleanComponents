@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  CleanComponentsExamples
-//
-//  Created by Andy Warwick on 03/04/2019.
-//  Copyright © 2019 Andrew Warwick. All rights reserved.
-//
 
 import UIKit
 import CleanComponents

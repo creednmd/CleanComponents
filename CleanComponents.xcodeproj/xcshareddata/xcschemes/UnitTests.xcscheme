@@ -5,39 +5,12 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C060068A2254965B00B79CF7"
-               BuildableName = "CleanComponents.framework"
-               BlueprintName = "CleanComponents"
-               ReferencedContainer = "container:CleanComponents.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C060068A2254965B00B79CF7"
-            BuildableName = "CleanComponents.framework"
-            BlueprintName = "CleanComponents"
-            ReferencedContainer = "container:CleanComponents.xcodeproj">
-         </BuildableReference>
-      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO"
@@ -54,9 +27,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C060068A2254965B00B79CF7"
-            BuildableName = "CleanComponents.framework"
-            BlueprintName = "CleanComponents"
+            BlueprintIdentifier = "C06006A8225496C000B79CF7"
+            BuildableName = "CleanComponentsExamples.app"
+            BlueprintName = "CleanComponentsExamples"
             ReferencedContainer = "container:CleanComponents.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -73,15 +46,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C060068A2254965B00B79CF7"
-            BuildableName = "CleanComponents.framework"
-            BlueprintName = "CleanComponents"
-            ReferencedContainer = "container:CleanComponents.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -91,15 +55,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C060068A2254965B00B79CF7"
-            BuildableName = "CleanComponents.framework"
-            BlueprintName = "CleanComponents"
-            ReferencedContainer = "container:CleanComponents.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

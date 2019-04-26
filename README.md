@@ -1,6 +1,6 @@
 # CleanComponents
 
-[![Build Status](https://app.bitrise.io/app/53b0470003a5a09b/status.svg?token=NyG8n4VcjrRuTP7m3RrU6g&branch=develop)
+[![Build Status](https://app.bitrise.io/app/53b0470003a5a09b/status.svg?token=NyG8n4VcjrRuTP7m3RrU6g&branch=develop)](https://app.bitrise.io/app/53b0470003a5a09b/#/builds)
 [![codecov](https://codecov.io/gh/creednmd/CleanComponents/branch/master/graph/badge.svg)](https://codecov.io/gh/creednmd/CleanComponents)
 [![Version](https://img.shields.io/cocoapods/v/CleanComponents.svg?style=flat)](https://cocoapods.org/pods/CleanComponents)
 [![License](https://img.shields.io/cocoapods/l/CleanComponents.svg?style=flat)](https://cocoapods.org/pods/CleanComponents)

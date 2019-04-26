@@ -24,7 +24,7 @@ before_install:
 
 script:
   - udid=`xcrun simctl list devices --json | jq --raw-output '.devices | to_entries | map(select(.key | contains("'$IOS_VERSION'"))) | .[].value[] | select(.name | match("'$DEVICE_GREP'"; "i")) | .udid'`
-  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project CleanComponents.xcodeproj -scheme CleanComponents -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,id=$udid" ONLY_ACTIVE_ARCH=NO
+  - set -o pipefail && xcodebuild test -enableCodeCoverage YES -project CleanComponents.xcodeproj -scheme CleanComponentsExample -configuration Debug -sdk iphonesimulator -destination "platform=iOS Simulator,id=$udid" ONLY_ACTIVE_ARCH=NO
   - osascript -e 'tell app "Simulator" to quit'
 
 after_success:

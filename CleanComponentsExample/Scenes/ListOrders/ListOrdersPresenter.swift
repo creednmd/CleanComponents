@@ -22,6 +22,10 @@ final class ListOrdersPresenter: CleanPresenter, ListOrdersPresentationLogic
 {
   weak var viewController: CleanViewController?
   
+  init(viewController: CleanViewController?) {
+    self.viewController = viewController
+  }
+
   // MARK: Do something
   
   func presentSomething(response: ListOrders.Something.Response)

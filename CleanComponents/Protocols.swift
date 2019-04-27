@@ -15,33 +15,31 @@ public typealias CleanDataStore = CleanInteractor
 
 
 public protocol CleanVC: AnyObject {
-  var interactor: CleanInteractor? { get set }
-  var router: CleanRouter? { get set }
-
-  init()
+  var interactor: CleanInteractor { get }
+  var router: CleanRouter { get }
 }
 
 
 public protocol CleanInteractor {
-  var presenter: CleanPresenter? { get set }
-  var worker: CleanWorker? { get set }
+  var presenter: CleanPresenter { get }
+  var worker: CleanWorker? { get }
 
-  init()
+  init(presenter: CleanPresenter)
 }
 
 
 public protocol CleanPresenter {
   var viewController: CleanViewController? { get set }
 
-  init()
+  init(viewController: CleanViewController?)
 }
 
 
 public protocol CleanRouter {
   var viewController: CleanViewController? { get set }
-  var dataStore: CleanDataStore? { get set }
+  var dataStore: CleanDataStore { get }
 
-  init()
+  init(viewController: CleanViewController?, dataStore: CleanDataStore)
 }
 
 
@@ -66,9 +64,26 @@ public protocol CleanSceneFactory {
 
 public protocol CleanComponentFactory {
   func makeCleanViewController(name sceneName: String, module moduleName: String?) -> CleanViewController
-  func makeCleanInteractor(name sceneName: String, module moduleName: String?) -> CleanInteractor
-  func makeCleanPresenter(name sceneName: String, module moduleName: String?) -> CleanPresenter
-  func makeCleanRouter(name sceneName: String, module moduleName: String?) -> CleanRouter
+  func makeCleanInteractor(name sceneName: String, module moduleName: String?, presenter: CleanPresenter) -> CleanInteractor
+  func makeCleanPresenter(name sceneName: String, module moduleName: String?, viewController: CleanViewController?) -> CleanPresenter
+  func makeCleanRouter(name sceneName: String, module moduleName: String?, viewController: CleanViewController?, dataStore: CleanDataStore) -> CleanRouter
   func makeCleanWorker(name sceneName: String, module moduleName: String?) -> CleanWorker
 }
+
+
+
+
+
+
+//  public lazy var interactor: CleanInteractor = {
+//    return T(presenter: V(viewController: self))
+//  }()
+//
+//  public lazy var router: CleanRouter = {
+//    let dataStore = (self.interactor as CleanDataStore)
+//
+//    return U(viewController: self, dataStore: dataStore)
+//  }()
+
+
 

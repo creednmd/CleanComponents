@@ -20,31 +20,37 @@ protocol ListOrdersDisplayLogic: class
 
 final class ListOrdersViewController: CleanViewController, CreateOrderDisplayLogic
 {
-  var interactor: CleanInteractor?
-  var router: CleanRouter?
+  lazy var interactor: CleanInteractor = {
+    return ListOrdersInteractor(presenter: ListOrdersPresenter(viewController: self))
+  }()
 
-  // MARK: Object lifecycle
+  lazy var router: CleanRouter = {
+    let dataStore = self.interactor
 
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-  }
+    return ListOrdersRouter(viewController: self, dataStore: dataStore)
+  }()
 
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-  }
+
+  private lazy var listOrdersInteractor: CreateOrderBusinessLogic = {
+    return interactor as! CreateOrderBusinessLogic
+  }()
+
+
+  private lazy var listOrdersRouter: NSObjectProtocol & CreateOrderRoutingLogic = {
+    return router as! NSObjectProtocol & CreateOrderRoutingLogic
+  }()
+
 
   // MARK: Routing
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
   {
-//    if let scene = segue.identifier {
-//      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-//      if let router = router, router.responds(to: selector) {
-//        router.perform(selector, with: segue)
-//      }
-//    }
+    if let scene = segue.identifier {
+      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+      if listOrdersRouter.responds(to: selector) {
+        listOrdersRouter.perform(selector, with: segue)
+      }
+    }
   }
 
   // MARK: View lifecycle

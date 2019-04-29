@@ -7,7 +7,7 @@ public class CleanFactory: CleanFactoryProtocol {
 
 
 public struct CleanScene: CleanSceneProtocol {
-  public var viewController: CleanViewController?
+  public var viewController: (UIViewController & CleanViewController)?
   public var interactor: CleanInteractor?
   public var presenter: CleanPresenter?
   public var router: CleanRouter?
@@ -37,9 +37,9 @@ public extension CleanSceneFactory {
 
 public extension CleanComponentFactory {
 
-  func makeCleanViewController(name sceneName: String, module moduleName: String?) -> CleanViewController {
+  func makeCleanViewController(name sceneName: String, module moduleName: String? = nil, bundle sceneBundle: Bundle? = nil) -> (UIViewController & CleanViewController) {
     // Instantiate view controller from storyboard with the same name as scene, and check type is correct.
-    let storyboard = UIStoryboard(name: sceneName, bundle: nil)
+    let storyboard = UIStoryboard(name: sceneName, bundle: sceneBundle)
 
     guard let viewController = storyboard.instantiateInitialViewController() else {
       fatalError("Unable to get initial view controller from \(sceneName) storyboard.") }
@@ -55,14 +55,14 @@ public extension CleanComponentFactory {
     guard viewController.isKind(of: viewControllerClass!) else {
       fatalError("View controller from \(sceneName) storyboard is of the wrong type.") }
 
-    guard let cleanViewController = viewController as? CleanViewController else
+    guard let cleanViewController = viewController as? (UIViewController & CleanViewController) else
       { fatalError("Unable to cast viewcontroller to CleanViewController.") }
 
     return cleanViewController
   }
 
 
-  func makeCleanInteractor(name sceneName: String, module moduleName: String?, presenter: CleanPresenter) -> CleanInteractor {
+  func makeCleanInteractor(name sceneName: String, module moduleName: String? = nil, presenter: CleanPresenter) -> CleanInteractor {
     let moduleName = getModule(named: moduleName)
 
     guard let interactorClass = NSClassFromString("\(moduleName).\(sceneName)Interactor")
@@ -72,7 +72,7 @@ public extension CleanComponentFactory {
   }
 
 
-  func makeCleanPresenter(name sceneName: String, module moduleName: String?, viewController: CleanViewController? = nil) -> CleanPresenter {
+  func makeCleanPresenter(name sceneName: String, module moduleName: String? = nil, viewController: CleanViewController? = nil) -> CleanPresenter {
     let moduleName = getModule(named: moduleName)
 
     guard let presenterClass = NSClassFromString("\(moduleName).\(sceneName)Presenter")
@@ -82,7 +82,7 @@ public extension CleanComponentFactory {
   }
 
 
-  func makeCleanRouter(name sceneName: String, module moduleName: String?, viewController: CleanViewController? = nil, dataStore: CleanDataStore) -> CleanRouter {
+  func makeCleanRouter(name sceneName: String, module moduleName: String? = nil, viewController: CleanViewController? = nil, dataStore: CleanDataStore) -> CleanRouter {
    let moduleName = getModule(named: moduleName)
 
     guard let routerClass = NSClassFromString("\(moduleName).\(sceneName)Router")
@@ -92,11 +92,11 @@ public extension CleanComponentFactory {
   }
 
 
-  func makeCleanWorker(name sceneName: String, module moduleName: String?) -> CleanWorker {
+  func makeCleanWorker(name sceneName: String, module moduleName: String? = nil) -> CleanWorker {
     let moduleName = getModule(named: moduleName)
 
     guard let workerClass = NSClassFromString("\(moduleName).\(sceneName)Worker")
-        as? CleanWorker.Type else { fatalError("Unable to instantiate worker of requested class.") }
+        as? CleanWorker.Type else { fatalError("Unable to instantiate worker of requested class .") }
 
     return workerClass.init()
   }

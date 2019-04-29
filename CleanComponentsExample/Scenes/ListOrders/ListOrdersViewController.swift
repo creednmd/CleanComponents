@@ -18,7 +18,7 @@ protocol ListOrdersDisplayLogic: class
   func displaySomething(viewModel: CreateOrder.Something.ViewModel)
 }
 
-final class ListOrdersViewController: CleanViewController, CreateOrderDisplayLogic
+final class ListOrdersViewController: UIViewController, CleanViewController, CreateOrderDisplayLogic
 {
   lazy var interactor: CleanInteractor = {
     return ListOrdersInteractor(presenter: ListOrdersPresenter(viewController: self))

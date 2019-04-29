@@ -6,7 +6,7 @@ protocol CreateOrderDisplayLogic: class
   func displaySomething(viewModel: CreateOrder.Something.ViewModel)
 }
 
-final class CreateOrderViewController: CleanViewController, CreateOrderDisplayLogic
+final class CreateOrderViewController: UIViewController, CleanViewController, CreateOrderDisplayLogic
 {
   lazy var interactor: CleanInteractor = {
     return CreateOrderInteractor(presenter: CreateOrderPresenter(viewController: self))

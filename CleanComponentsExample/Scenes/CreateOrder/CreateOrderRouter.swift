@@ -15,7 +15,7 @@ import CleanComponents
 
 @objc protocol CreateOrderRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
 protocol CreateOrderDataPassing
@@ -26,7 +26,12 @@ protocol CreateOrderDataPassing
 final class CreateOrderRouter: NSObject, CleanRouter
 {
   weak var viewController: CleanViewController?
-  var dataStore: CleanDataStore?
+  var dataStore: CleanDataStore
+
+  init(viewController: CleanViewController? = nil, dataStore: CleanDataStore) {
+    self.viewController = viewController
+    self.dataStore = dataStore
+  }
 
   // MARK: Routing
   

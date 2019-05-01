@@ -13,7 +13,7 @@
 import UIKit
 import CleanComponents
 
-protocol ListOrdersBusinessLogic
+protocol ListOrdersBusinessLogic: CleanInteractor
 {
   func doSomething(request: ListOrders.Something.Request)
 }
@@ -23,10 +23,19 @@ protocol ListOrdersDataStore
   //var name: String { get set }
 }
 
-final class ListOrdersInteractor: CleanInteractor, ListOrdersBusinessLogic, ListOrdersDataStore
+final class ListOrdersInteractor: ListOrdersBusinessLogic, ListOrdersDataStore
 {
-  var presenter: CleanPresenter?
-  var worker: CleanWorker?
+  var presenter: CleanPresenter
+  var workers: [CleanWorker] = []
+
+  var worker: CleanWorker? {
+    return workers.isEmpty ? nil : workers.first
+  }
+
+  init(presenter: CleanPresenter) {
+    self.presenter = presenter
+  }
+
   //var name: String = ""
   
   // MARK: Do something

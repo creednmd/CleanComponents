@@ -7,7 +7,7 @@ public class CleanFactory: CleanFactoryProtocol {
 
 
 public struct CleanScene: CleanSceneProtocol {
-  public var viewController: CleanViewController?
+  public var viewController: (UIViewController & CleanViewController)?
   public var interactor: CleanInteractor?
   public var presenter: CleanPresenter?
   public var router: CleanRouter?
@@ -21,22 +21,12 @@ public extension CleanSceneFactory {
 
     let factory = CleanFactory()
 
-    let viewController = factory.makeCleanViewController(name: sceneName, module: moduleName)
-    var interactor = factory.makeCleanInteractor(name: sceneName, module: moduleName)
-    var presenter = factory.makeCleanPresenter(name: sceneName, module: moduleName)
-    var router = factory.makeCleanRouter(name: sceneName, module: moduleName)
+    let vc = factory.makeCleanViewController(name: sceneName, module: moduleName)
 
-    // Setup links between controllers to form VIP loop.
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-
-    let scene = CleanScene(viewController: viewController,
-                           interactor: interactor,
-                           presenter: presenter,
-                           router: router,
+    let scene = CleanScene(viewController: vc,
+                           interactor: vc.interactor,
+                           presenter: vc.interactor.presenter,
+                           router: vc.router,
                            workers: [])
 
     return scene
@@ -47,9 +37,9 @@ public extension CleanSceneFactory {
 
 public extension CleanComponentFactory {
 
-  func makeCleanViewController(name sceneName: String, module moduleName: String?) -> CleanViewController {
+  func makeCleanViewController(name sceneName: String, module moduleName: String? = nil, bundle sceneBundle: Bundle? = nil) -> (UIViewController & CleanViewController) {
     // Instantiate view controller from storyboard with the same name as scene, and check type is correct.
-    let storyboard = UIStoryboard(name: sceneName, bundle: nil)
+    let storyboard = UIStoryboard(name: sceneName, bundle: sceneBundle)
 
     guard let viewController = storyboard.instantiateInitialViewController() else {
       fatalError("Unable to get initial view controller from \(sceneName) storyboard.") }
@@ -65,48 +55,48 @@ public extension CleanComponentFactory {
     guard viewController.isKind(of: viewControllerClass!) else {
       fatalError("View controller from \(sceneName) storyboard is of the wrong type.") }
 
-    guard let cleanViewController = viewController as? CleanViewController else
+    guard let cleanViewController = viewController as? (UIViewController & CleanViewController) else
       { fatalError("Unable to cast viewcontroller to CleanViewController.") }
 
     return cleanViewController
   }
 
 
-  func makeCleanInteractor(name sceneName: String, module moduleName: String?) -> CleanInteractor {
+  func makeCleanInteractor(name sceneName: String, module moduleName: String? = nil, presenter: CleanPresenter) -> CleanInteractor {
     let moduleName = getModule(named: moduleName)
 
     guard let interactorClass = NSClassFromString("\(moduleName).\(sceneName)Interactor")
         as? CleanInteractor.Type else { fatalError("Unable to instantiate interactor of requested class.") }
 
-    return interactorClass.init()
+    return interactorClass.init(presenter: presenter)
   }
 
 
-  func makeCleanPresenter(name sceneName: String, module moduleName: String?) -> CleanPresenter {
+  func makeCleanPresenter(name sceneName: String, module moduleName: String? = nil, viewController: CleanViewController? = nil) -> CleanPresenter {
     let moduleName = getModule(named: moduleName)
 
     guard let presenterClass = NSClassFromString("\(moduleName).\(sceneName)Presenter")
         as? CleanPresenter.Type else { fatalError("Unable to instantiate presenter of requested class.") }
 
-    return presenterClass.init()
+    return presenterClass.init(viewController: viewController)
   }
 
 
-  func makeCleanRouter(name sceneName: String, module moduleName: String?) -> CleanRouter {
+  func makeCleanRouter(name sceneName: String, module moduleName: String? = nil, viewController: CleanViewController? = nil, dataStore: CleanDataStore) -> CleanRouter {
    let moduleName = getModule(named: moduleName)
 
     guard let routerClass = NSClassFromString("\(moduleName).\(sceneName)Router")
         as? CleanRouter.Type else { fatalError("Unable to instantiate router of requested class.") }
 
-    return routerClass.init()
+    return routerClass.init(viewController: viewController, dataStore: dataStore)
   }
 
 
-  func makeCleanWorker(name sceneName: String, module moduleName: String?) -> CleanWorker {
+  func makeCleanWorker(name sceneName: String, module moduleName: String? = nil) -> CleanWorker {
     let moduleName = getModule(named: moduleName)
 
     guard let workerClass = NSClassFromString("\(moduleName).\(sceneName)Worker")
-        as? CleanWorker.Type else { fatalError("Unable to instantiate worker of requested class.") }
+        as? CleanWorker.Type else { fatalError("Unable to instantiate worker of requested class .") }
 
     return workerClass.init()
   }

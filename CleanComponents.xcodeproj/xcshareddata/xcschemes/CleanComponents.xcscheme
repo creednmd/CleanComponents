@@ -44,9 +44,9 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0E9D20B2271F0D40086B09B"
-               BuildableName = "CleanComponentTests.xctest"
-               BlueprintName = "CleanComponentTests"
+               BlueprintIdentifier = "C0E9D22622731AC90086B09B"
+               BuildableName = "CleanComponentsTests.xctest"
+               BlueprintName = "CleanComponentsTests"
                ReferencedContainer = "container:CleanComponents.xcodeproj">
             </BuildableReference>
          </TestableReference>

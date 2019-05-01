@@ -26,8 +26,13 @@ protocol ListOrdersDataPassing
 final class ListOrdersRouter: NSObject, CleanRouter
 {
   weak var viewController: CleanViewController?
-  var dataStore: CleanDataStore?
+  var dataStore: CleanDataStore
   
+  init(viewController: CleanViewController? = nil, dataStore: CleanDataStore) {
+    self.viewController = viewController
+    self.dataStore = dataStore
+  }
+
   // MARK: Routing
   
   //func routeToSomewhere(segue: UIStoryboardSegue?)
